@@ -1,0 +1,64 @@
+﻿@model EmployeeManagement_Front.Models.Employee
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+<div>
+    <button class="btn btn-primary mb-2" id="btnAdd">Add Employee</button>
+</div>
+<div class="container">
+    <table class="table table-success table-striped table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tblBody">
+            
+        </tbody>
+    </table>
+</div>
+<div class="modal" id="EmployeeModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">
+
+                </h3>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" asp-for="Id" value="0" />
+                <div class="mb-2">
+                    <label asp-for="FirstName"></label>
+                    <input type="text" asp-for="FirstName" class="form-control" placeholder="Employee First Name" />
+                </div>
+                <div class="mb-2">
+                    <label asp-for="LastName"></label>
+                    <input type="text" asp-for="LastName" class="form-control" placeholder="Employee Last Name" />
+                </div>
+                <div class="mb-2">
+                    <label asp-for="Age"></label>
+                    <input type="text" asp-for="Age" class="form-control" placeholder="Employee Age" />
+                </div>
+                <div class="mb-2">
+                    <label asp-for="Email"></label>
+                    <input type="text" asp-for="Email" class="form-control" placeholder="Employee Email" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="Save" type="submit" onclick="Insert();">Save</button>
+                <button class="btn btn-success" id="Update" type="submit" onclick="Update();" style="display:none">Update</button>
+                <button class="btn btn-danger" data-bs-dismiss="modal" onclick="HideModal();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/employee.js"></script>
